@@ -19,7 +19,7 @@ class CitasC{
 
 				echo '<script>
 				
-				window.location = "Doctor/'.$Did.'";
+				window.location = "Doctor/"'.$Did.';
 				
 				</script>';
 
