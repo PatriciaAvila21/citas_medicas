@@ -18,8 +18,9 @@ class CitasC{
 			if($resultado == true){
 
 				echo '<script>
-
-				window.location = "Doctor/"'.$Did.';
+				
+				window.location = "Doctor/'.$Did.'";
+				
 				</script>';
 
 			}
