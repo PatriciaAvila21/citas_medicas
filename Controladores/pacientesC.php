@@ -9,7 +9,7 @@ class PacientesC{
 
 			$tablaBD = "pacientes";
 
-			$datosC = array("cedula"=>$_POST["cedula"],"apellido"=>$_POST["apellido"], "nombre"=>$_POST["nombre"], "documento"=>$_POST["documento"], "usuario"=>$_POST["usuario"], "clave"=>$_POST["clave"], "rol"=>$_POST["rolP"]);
+			$datosC = array("cedula"=>$_POST["cedula"],"apellido"=>$_POST["apellido"], "nombre"=>$_POST["nombre"], "correo"=>$_POST["correo"], "telefono"=>$_POST["telefono"], "direccion"=>$_POST["direccion"], "ciudad"=>$_POST["ciudad"], "fechaNac"=>$_POST["fechaNac"], "genero"=>$_POST["genero"], "documento"=>$_POST["documento"], "usuario"=>$_POST["usuario"], "clave"=>$_POST["clave"], "rol"=>$_POST["rolP"]);
 
 			$resultado = PacientesM::CrearPacienteM($tablaBD, $datosC);
 
@@ -80,7 +80,7 @@ class PacientesC{
 
 			$tablaBD = "pacientes";
 
-			$datosC = array("id"=>$_POST["Pid"], "cedula"=>$_POST["cedulaE"], "apellido"=>$_POST["apellidoE"], "nombre"=>$_POST["nombreE"], "documento"=>$_POST["documentoE"], "usuario"=>$_POST["usuarioE"], "clave"=>$_POST["claveE"]);
+			$datosC = array("id"=>$_POST["Pid"], "cedula"=>$_POST["cedulaE"], "apellido"=>$_POST["apellidoE"], "nombre"=>$_POST["nombreE"], "correo"=>$_POST["correoE"], "telefono"=>$_POST["telefonoE"], "direccion"=>$_POST["direccionE"], "ciudad"=>$_POST["ciudadE"], "documento"=>$_POST["documentoE"], "usuario"=>$_POST["usuarioE"], "clave"=>$_POST["claveE"]);
 
 			$resultado = PacientesM::ActualizarPacienteM($tablaBD, $datosC);
 			
@@ -122,6 +122,12 @@ class PacientesC{
 					$_SESSION["clave"] = $resultado["clave"];
 					$_SESSION["apellido"] = $resultado["apellido"];
 					$_SESSION["nombre"] = $resultado["nombre"];
+					$_SESSION["correo"] = $resultado["correo"];
+					$_SESSION["telefono"] = $resultado["telefono"];
+					$_SESSION["direccion"] = $resultado["direccion"];
+					$_SESSION["ciudad"] = $resultado["ciudad"];
+					$_SESSION["fechaNac"] = $resultado["fechaNac"];
+					$_SESSION["Genero"] = $resultado["genero"];
 					$_SESSION["documento"] = $resultado["documento"];
 					$_SESSION["foto"] = $resultado["foto"];
 					$_SESSION["rol"] = $resultado["rol"];
@@ -156,7 +162,14 @@ class PacientesC{
 				<td>'.$resultado["usuario"].'</td>
 				<td>'.$resultado["clave"].'</td>
 				<td>'.$resultado["nombre"].'</td>
-				<td>'.$resultado["apellido"].'</td>';
+				<td>'.$resultado["apellido"].'</td>
+				<td>'.$resultado["correo"].'</td>
+				<td>'.$resultado["direccion"].'</td>
+				<td>'.$resultado["ciudad"].'</td>
+				<td>'.$resultado["cedula"].'</td>
+				<td>'.$resultado["telefono"].'</td>
+				<td>'.$resultado["fechaNac"].'</td>
+				<td>'.$resultado["genero"].'</td>';
 
 				if($resultado["foto"] == ""){
 

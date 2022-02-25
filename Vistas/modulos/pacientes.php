@@ -27,10 +27,26 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 		<div class="box">
 			
 			<div class="box-header">
-				
+
 				<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#CrearPaciente">Crear Paciente</button>
 				
 			</div>
+
+			<div class="card-tools">
+											<a href="../view/especialidad/reporte.php" class="btn btn-info btn-border btn-round btn-sm mr-2">
+												<span class="btn-label">
+													<i class="fa fa-pencil"></i>
+												</span>
+												Exportar
+											</a>
+											<a href="#" class="btn btn-info btn-border btn-round btn-sm">
+												<span class="btn-label">
+													<i class="fa fa-print"></i>
+												</span>
+												Imprimir
+											</a>
+										</div>
+										<div class="card-body">
 
 
 			<div class="box-body">
@@ -45,15 +61,34 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 							<th>Cedula</th>
 							<th>Apellido</th>
 							<th>Nombre</th>
-							<th>Documento</th>
+							<th>Correo</th>
+							<th>Telefono</th>
+							<th>Direccion</th>
+							<th>Fecha de Nacimiento</th>
 							<th>Foto</th>
 							<th>Usuario</th>
 							<th>Contraseña</th>
-							<th>Editar / Borrar</th>
+							<th style="width: 10%" >Editar / Borrar</th>
 
 						</tr>
 
 					</thead>
+					<tfoot>
+						<tr>
+							<th>N°</th>
+							<th>Cedula</th>
+							<th>Apellido</th>
+							<th>Nombre</th>
+							<th>Correo</th>
+							<th>Telefono</th>
+							<th>Direccion</th>
+							<th>Fecha de Nacimiento</th>
+							<th>Foto</th>
+							<th>Usuario</th>
+							<th>Contraseña</th>
+							<th>Editar / Borrar</th>
+						</tr>
+					</tfoot>
 
 					<tbody>
 
@@ -72,7 +107,10 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 									<td>'.$value["cedula"].'</td>
 									<td>'.$value["apellido"].'</td>
 									<td>'.$value["nombre"].'</td>
-									<td>'.$value["documento"].'</td>';
+									<td>'.$value["correo"].'</td>
+									<td>'.$value["telefono"].'</td>
+									<td>'.$value["direccion"].'</td>
+									<td>'.$value["fechaNac"].'</td>';
 
 									if($value["foto"] == ""){
 
@@ -136,55 +174,123 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 					
 					<div class="box-body">
 
-					<div class="form-group">
-							
-							<h2>Cedula:</h2>
-
-							<input type="text" maxlength="10" class="form-control input-lg" name="cedula" required>
-
-							<input type="hidden" name="rolP" value="Paciente">
-
-						</div>
+					<div class="col-md-12">
+						    <div class="form-group form-group-default">
+						      <label>Cédula:</label>
+							       <input type="text" maxlength="10" class="form-control" name="cedula" placeholder="Ingrese su numero de cédula" required>
+							       <input type="hidden" name="rolP" value="Paciente">
+					     	</div>
+					</div>
 						
-						<div class="form-group">
-							
-							<h2>Apellido:</h2>
-
-							<input type="text" class="form-control input-lg" name="apellido" required>
-
+						<div class="col-md-6">
+						    <div class="form-group form-group-default">
+						      <label>Apellidos:</label>
+   							    <input type="text" class="form-control" name="apellido" placeholder="Ingrese sus apellidos completos" required>
+						    </div>
 						</div>
 
-						<div class="form-group">
-							
-							<h2>Nombre:</h2>
-
-							<input type="text" class="form-control input-lg" name="nombre" required>
-
+						<div class="col-md-6">
+						    <div class="form-group form-group-default">
+						      <label>Nombres:</label>
+                              <input type="text" class="form-control" name="nombre" placeholder="Ingrese sus nombres completos" required>
+                        	</div>
 						</div>
 
+						<div class="col-md-6">
+						  <div class="form-group form-group-default">
+							<label>Correo Electronico:</label>
+      							<input type="email" class="form-control" name="correo" placeholder="Ingrese su correo electronico" required>
+                          </div>
+					    </div>
+						
+						<div class="col-md-6">
+							<div class="form-group form-group-default">
+								<label>Teléfono:</label>
+								<input name="telefono" type="text" class="form-control" required maxlength="10" placeholder="Ingrese teléfono" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" required>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="form-group form-group-default">
+								<label>Dirección</label>
+								<input name="direccion" type="text" class="form-control" placeholder="Ingrese su direccion" required>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="form-group form-group-default">
+								<label>Ciudad:</label>
+								<option>Seleccionar...</option>
+								<select class="form-control" name="ciudad" required>
+								<option value="Masculino">Azuay</option>
+					        	<option value="Femenino">Bolivar</option>
+								<option value="Femenino">Cañar</option>
+								<option value="Femenino">Carchi</option>
+								<option value="Femenino">Chimborazo</option>
+								<option value="Femenino">Cotopaxi</option>
+								<option value="Femenino">El Oro
+								<option value="Femenino">Esmeraldas</option>
+								<option value="Femenino">Galapagos</option>
+								<option value="Femenino">Guayas</option>
+								<option value="Femenino">Imbabura</option>
+								<option value="Femenino">Loja</option>
+								<option value="Femenino">Los Rios</option>
+								<option value="Femenino">Manabi</option>
+								</option>
+				                </select>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="form-group form-group-default">
+								<label>Fecha nacimiento</label>
+								<input name="fechaNac" type="date" class="form-control" placeholder="Ingrese fecha" required>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="form-group form-group-default">
+								<label>Sexo</label>
+				             	<select class="form-control" name="genero" required>
+								 <option>Seleccionar...</option>
+				        		<option value="Masculino">Masculino</option>
+					        	<option value="Femenino">Femenino</option>
+				                </select>
+							</div>
+						</div>
+
+						<div class="col-md-12">
+							<div class="form-group form-group-default">
+								<label>Documento:</label>
+								<input name="documento" type="text" class="form-control" placeholder="Ingrese su numero de documento" required>
+							</div>
+						</div>
+<!-- 
 						<div class="form-group">
 							
 							<h2>Documento:</h2>
 
 							<input type="text" class="form-control input-lg" name="documento" required>
 
+						</div>-->
+						<div class="modal-header">
+               				<center><h4 class="modal-title" id="myModalLabel">Crear credenciales del paciente</h4></center>
+		                </div>
+
+						<div class="col-md-6">
+							<div class="form-group form-group-default">
+								<label>Usuario:</label>
+								<input id="usuario" name="usuario" type="text" class="form-control" placeholder="Ingrese su usuario" required>
+							</div>
 						</div>
 
-						<div class="form-group">
-							
-							<h2>Usuario:</h2>
-
-							<input type="text" class="form-control input-lg" id="usuario" name="usuario" required>
-
+						<div class="col-md-6">
+							<div class="form-group form-group-default">
+								<label>Contraseña:</label>
+								<input  name="clave" type="text" class="form-control" placeholder="Ingrese su contraseña" required>
+							</div>
 						</div>
 
-						<div class="form-group">
-							
-							<h2>Contraseña:</h2>
-
-							<input type="text" class="form-control input-lg" name="clave" required>
-
-						</div>
 
 					</div>
 
@@ -250,6 +356,38 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 							<h2>Nombre:</h2>
 
 							<input type="text" class="form-control input-lg" id="nombreE" name="nombreE" required>
+
+						</div>
+
+						<div class="form-group">
+							
+							<h2>Correo Electronico:</h2>
+
+							<input type="email" class="form-control input-lg" id="correoE" name="correoE" required>
+
+						</div>
+
+						<div class="form-group">
+							
+							<h2>Telefono:</h2>
+
+							<input name="telefonoE" id="telefonoE" type="text" class="form-control" required maxlength="10" placeholder="Ingrese teléfono" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+
+						</div>
+
+						<div class="form-group">
+							
+							<h2>Direccion:</h2>
+
+							<input type="text" class="form-control input-lg" id="direccionE" name="direccionE" required>
+
+						</div>
+
+						<div class="form-group">
+							
+							<h2>Ciudad:</h2>
+
+							<input type="text" class="form-control input-lg" id="ciudadE" name="ciudadE" required>
 
 						</div>
 

@@ -21,11 +21,17 @@ $(".DT").on("click", ".EditarDoctor", function(){
 			$("#cedulaE").val(resultado["cedula"]);
 			$("#apellidoE").val(resultado["apellido"]);
 			$("#nombreE").val(resultado["nombre"]);
+			$("#correoE").val(resultado["correo"]);
+			$("#telefonoE").val(resultado["telefono"]);
+			$("#direccionE").val(resultado["direccion"]);
 			$("#usuarioE").val(resultado["usuario"]);
 			$("#claveE").val(resultado["clave"]);
 
 			$("#sexoE").html(resultado["sexo"]);
 			$("#sexoE").val(resultado["sexo"]);
+
+			$("#ciudadE").html(resultado["ciudad"]);
+			$("#ciudadE").val(resultado["ciudad"]);
 
 		} 
 

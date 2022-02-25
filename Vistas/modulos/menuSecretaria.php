@@ -20,7 +20,7 @@
       <li>
           <a href="http://localhost/clinica/consultorios">
             <i class="fa fa-medkit"></i>
-            <span>Consultorios</span>
+            <span>Especialidades</span>
         </a>
       </li>
 

@@ -7,11 +7,19 @@ class PacientesM extends ConexionBD{
 	//Crear Pacientes
 	static public function CrearPacienteM($tablaBD, $datosC){
 
-		$pdo = ConexionBD::cBD()->prepare("INSERT INTO $tablaBD(cedula, apellido, nombre, documento, usuario, clave, rol) VALUES (:cedula, :apellido, :nombre, :documento, :usuario, :clave, :rol)");
+		$pdo = ConexionBD::cBD()->prepare("INSERT INTO $tablaBD(cedula, apellido, nombre, correo, telefono, direccion, ciudad, fechaNac, genero, documento, usuario, clave, rol) VALUES (:cedula, :apellido, :nombre, :correo, :telefono, :direccion, :ciudad, :fechaNac, :genero, :documento, :usuario, :clave, :rol)");
 
 		$pdo -> bindParam(":cedula", $datosC["cedula"], PDO::PARAM_INT);
 		$pdo -> bindParam(":apellido", $datosC["apellido"], PDO::PARAM_STR);
 		$pdo -> bindParam(":nombre", $datosC["nombre"], PDO::PARAM_STR);
+
+		$pdo -> bindParam(":correo", $datosC["correo"], PDO::PARAM_STR);
+		$pdo -> bindParam(":telefono", $datosC["telefono"], PDO::PARAM_STR);
+		$pdo -> bindParam(":direccion", $datosC["direccion"], PDO::PARAM_STR);
+		$pdo -> bindParam(":ciudad", $datosC["ciudad"], PDO::PARAM_STR);
+		$pdo -> bindParam(":fechaNac", $datosC["fechaNac"], PDO::PARAM_STR);
+		$pdo -> bindParam(":genero", $datosC["genero"], PDO::PARAM_STR);
+
 		$pdo -> bindParam(":documento", $datosC["documento"], PDO::PARAM_STR);
 		$pdo -> bindParam(":usuario", $datosC["usuario"], PDO::PARAM_STR);
 		$pdo -> bindParam(":clave", $datosC["clave"], PDO::PARAM_STR);
@@ -79,12 +87,15 @@ class PacientesM extends ConexionBD{
 	//Actualizar Paciente
 	static public function ActualizarPacienteM($tablaBD, $datosC){
 
-		$pdo = ConexionBD::cBD()->prepare("UPDATE $tablaBD SET  cedula = :cedula, apellido = :apellido, nombre = :nombre, documento = :documento, usuario = :usuario, clave = :clave WHERE id = :id");
+		$pdo = ConexionBD::cBD()->prepare("UPDATE $tablaBD SET  cedula = :cedula, apellido = :apellido, nombre = :nombre, correo = :correo, telefono = :telefono, direccion = :direccion, ciudad = :ciudad, documento = :documento, usuario = :usuario, clave = :clave WHERE id = :id");
 
 		$pdo -> bindParam("id", $datosC["id"], PDO::PARAM_INT);
 		$pdo -> bindParam("cedula", $datosC["cedula"], PDO::PARAM_INT);
 		$pdo -> bindParam("apellido", $datosC["apellido"], PDO::PARAM_STR);
 		$pdo -> bindParam("nombre", $datosC["nombre"], PDO::PARAM_STR);
+		$pdo -> bindParam("correo", $datosC["correo"], PDO::PARAM_STR);
+		$pdo -> bindParam("telefono", $datosC["telefono"], PDO::PARAM_INT);
+		$pdo -> bindParam("direccion", $datosC["direccion"], PDO::PARAM_STR);
 		$pdo -> bindParam("documento", $datosC["documento"], PDO::PARAM_STR);
 		$pdo -> bindParam("usuario", $datosC["usuario"], PDO::PARAM_STR);
 		$pdo -> bindParam("clave", $datosC["clave"], PDO::PARAM_STR);
