@@ -31,9 +31,9 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 				<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#CrearDoctor">Crear Medicos</button>
 				
 			</div>
-
+<!--
 			<div class="card-tools">
-											<a href="../view/especialidad/reporte.php" class="btn btn-info btn-border btn-round btn-sm mr-2">
+											<a href="#" class="btn btn-info btn-border btn-round btn-sm mr-2">
 												<span class="btn-label">
 													<i class="fa fa-pencil"></i>
 												</span>
@@ -47,7 +47,7 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 											</a>
 										</div>
 										<div class="card-body">
-			<div class="box-body">
+			<div class="box-body">-->
 				
 				<table class="table table-bordered table-hover table-striped DT">
 					
@@ -59,8 +59,7 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 							<th>Cedula</th>
 							<th>Apellido</th>
 							<th>Nombre</th>
-							<th>Dirección</th>
-							<th>Fecha de nacimiento</th>
+							<th>Correo</th>
 							<th>Foto</th>
 							<th>Consultorio</th>
 							<th>Usuario</th>
@@ -76,9 +75,9 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 							<th>Cedula</th>
 							<th>Apellido</th>
 							<th>Nombre</th>
-							<th>Direccion</th>
-							<th>Fecha de Nacimiento</th>
+							<th>Correo</th>
 							<th>Foto</th>
+							<th>Consultorio</th>
 							<th>Usuario</th>
 							<th>Contraseña</th>
 							<th>Editar / Borrar</th>
@@ -102,8 +101,7 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 									<td>'.$value["cedula"].'</td>
 									<td>'.$value["apellido"].'</td>
 									<td>'.$value["nombre"].'</td>
-									<td>'.$value["direccion"].'</td>
-									<td>'.$value["fechaNac"].'</td>';
+									<td>'.$value["correo"].'</td>';
 
 									if($value["foto"] == ""){
 
@@ -226,29 +224,28 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 								<label>Ciudad:</label>
 								<select class="form-control" name="ciudad" required>
 								<option>Seleccionar...</option>
-								<option value="Masculino">Azuay</option>
-					        	<option value="Femenino">Bolivar</option>
-								<option value="Femenino">Cañar</option>
-								<option value="Femenino">Carchi</option>
-								<option value="Femenino">Chimborazo</option>
-								<option value="Femenino">Cotopaxi</option>
-								<option value="Femenino">El Oro
-								<option value="Femenino">Esmeraldas</option>
-								<option value="Femenino">Galapagos</option>
-								<option value="Femenino">Guayas</option>
-								<option value="Femenino">Imbabura</option>
-								<option value="Femenino">Loja</option>
-								<option value="Femenino">Los Rios</option>
-								<option value="Femenino">Manabi</option>
-								</option>
-				                </select>
+								<option value="Azuay">Azuay</option>
+					        	<option value="Bolivar">Bolivar</option>
+								<option value="Cañar">Cañar</option>
+								<option value="Carchi">Carchi</option>
+								<option value="Chimborazo">Chimborazo</option>
+								<option value="Cotopaxi">Cotopaxi</option>
+								<option value="El Oro">El Oro</option>
+								<option value="Esmeraldas">Esmeraldas</option>
+								<option value="Galapagos">Galapagos</option>
+								<option value="Guayas">Guayas</option>
+								<option value="Imbabura">Imbabura</option>
+								<option value="Loja">Loja</option>
+								<option value="Los Rios">Los Rios</option>
+								<option value="Manabi">Manabi</option>
+							    </select>
 							</div>
 						</div>
 
 						<div class="col-md-6">
 							<div class="form-group form-group-default">
 								<label>Fecha nacimiento</label>
-								<input name="fechaNac" type="date" class="form-control" placeholder="Ingrese fecha" required>
+								<input name="fechaNac" type="date" class="form-control" placeholder="Ingrese su fecha de Nacimiento" required>
 							</div>
 						</div>
 
@@ -256,7 +253,7 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 						<div class="col-md-6">
 							<div class="form-group form-group-default">
 								<label>Sexo</label>
-				             	<select class="form-control" name="genero" required>
+				             	<select class="form-control" name="sexo" required>
 								 <option>Seleccionar...</option>
 				        		<option value="Masculino">Masculino</option>
 					        	<option value="Femenino">Femenino</option>
@@ -308,7 +305,7 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 						<div class="col-md-6">
 							<div class="form-group form-group-default">
 								<label>Contraseña:</label>
-								<input  name="clave" type="text" class="form-control" placeholder="Ingrese su contraseña" required>
+								<input  name="clave" type="password" class="form-control" placeholder="Ingrese su contraseña" required>
 							</div>
 						</div>
 
@@ -353,66 +350,99 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 					
 					<div class="box-body">
 
+					<div class="col-md-12">
+						    <div class="form-group form-group-default">
+						      <label>Cédula:</label>
+							       <input type="text" maxlength="10" class="form-control" id="cedulaE" name="cedulaE" required>
+								   <input type="hidden" id="Did" name="Did">
+					     	</div>
+					</div>
 
-					<div class="form-group">
-							
-							<h2>Cedula:</h2>
+					<div class="col-md-6">
+						    <div class="form-group form-group-default">
+						      <label>Apellidos:</label>
+   							    <input type="text" class="form-control" id="apellidoE" name="apellidoE" required>
+						    </div>
+						</div>
 
-							<input type="text" maxlength="10" class="form-control input-lg" id="cedulaE" name="cedulaE" required>
-
-							<input type="hidden" id="Did" name="Did">
-
+						<div class="col-md-6">
+						    <div class="form-group form-group-default">
+						      <label>Nombres:</label>
+   							    <input type="text" class="form-control" id="nombreE" name="nombreE" required>
+						    </div>
 						</div>
 						
-						<div class="form-group">
-							
-							<h2>Apellido:</h2>
-
-							<input type="text" class="form-control input-lg" id="apellidoE" name="apellidoE" required>
-
-							
-
+						<div class="col-md-6">
+						    <div class="form-group form-group-default">
+						      <label>Correo Electronico:</label>
+   							    <input type="email" class="form-control" id="correoE" name="correoE" required>
+						    </div>
 						</div>
 
-						<div class="form-group">
-							
-							<h2>Nombre:</h2>
+						<div class="col-md-6">
+						    <div class="form-group form-group-default">
+						      <label>Telefono:</label>
+							  <input name="telefonoE" id="telefonoE" type="text" class="form-control" required maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+						    </div>
+						</div>
+						
+						<div class="col-md-6">
+						    <div class="form-group form-group-default">
+						      <label>Direccion:</label>
+   							    <input type="text" class="form-control" id="direccionE" name="direccionE" required>
+						    </div>
+						</div>
 
-							<input type="text" class="form-control input-lg" id="nombreE" name="nombreE" required>
+						<div class="col-md-6">
+							<div class="form-group form-group-default">
+								<label>Ciudad:</label>
+								<select class="form-control" name="ciudadE">
+								<option id="ciudadE"></option>
+								<option value="Azuay">Azuay</option>
+					        	<option value="Bolivar">Bolivar</option>
+								<option value="Cañar">Cañar</option>
+								<option value="Carchi">Carchi</option>
+								<option value="Chimborazo">Chimborazo</option>
+								<option value="Cotopaxi">Cotopaxi</option>
+								<option value="El Oro">El Oro</option>
+								<option value="Esmeraldas">Esmeraldas</option>
+								<option value="Galapagos">Galapagos</option>
+								<option value="Guayas">Guayas</option>
+								<option value="Imbabura">Imbabura</option>
+								<option value="Loja">Loja</option>
+								<option value="Los Rios">Los Rios</option>
+								<option value="Manabi">Manabi</option>
+				                </select>
+							</div>
+						</div>
 
+						
+						<div class="col-md-6">
+							<div class="form-group form-group-default">
+								<label>Sexo</label>
+				             	<select class="form-control" name="sexoE">
+								 <option id="sexoE"></option>
+				        		<option value="Masculino">Masculino</option>
+					        	<option value="Femenino">Femenino</option>
+				                </select>
+							</div>
 						</div>
 
 
-						<div class="form-group">
-							
-							<h2>Sexo:</h2>
-
-							<select class="form-control input-lg" name="sexoE" required="">
-								
-								<option id="sexoE"></option>
-
-								<option value="Masculino">Masculino</option>
-								<option value="Femenino">Femenino</option>
-
-							</select>
-
+						<div class="col-md-6">
+							<div class="form-group form-group-default">
+								<label>Usuario:</label>
+								<input id="usuarioE" name="usuarioE" type="text" class="form-control" placeholder="Ingrese su usuario" required>
+							</div>
 						</div>
 
-						<div class="form-group">
-							
-							<h2>Usuario:</h2>
-
-							<input type="text" class="form-control input-lg" id="usuarioE" name="usuarioE" required>
-
+						<div class="col-md-6">
+							<div class="form-group form-group-default">
+								<label>Contraseña:</label>
+								<input  id="claveE" name="claveE" type="text" class="form-control" placeholder="Ingrese su contraseña" required>
+							</div>
 						</div>
-
-						<div class="form-group">
-							
-							<h2>Contraseña:</h2>
-
-							<input type="text" class="form-control input-lg" id="claveE" name="claveE" required>
-
-						</div>
+						
 
 					</div>
 

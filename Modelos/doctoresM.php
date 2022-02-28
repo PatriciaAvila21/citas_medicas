@@ -88,7 +88,7 @@ class DoctoresM extends ConexionBD{
 	//Actualizar Doctores
 	static public function ActualizarDoctorM($tablaBD, $datosC){
 
-		$pdo = ConexionBD::cBD()->prepare("UPDATE $tablaBD SET cedula = :cedula, apellido = :apellido, nombre = :nombre, correo = :correo, telefono = :telefono, direccion = :direccion, ciudad = :ciudad, fechaNac = :fechaNac, sexo = :sexo, usuario = :usuario, clave = :clave WHERE id = :id");
+		$pdo = ConexionBD::cBD()->prepare("UPDATE $tablaBD SET cedula = :cedula, apellido = :apellido, nombre = :nombre, correo = :correo, telefono = :telefono, direccion = :direccion, ciudad = :ciudad, sexo = :sexo, usuario = :usuario, clave = :clave WHERE id = :id");
 
 		$pdo -> bindParam(":id", $datosC["id"], PDO::PARAM_INT);
 		$pdo -> bindParam(":cedula", $datosC["cedula"], PDO::PARAM_STR);
@@ -98,7 +98,6 @@ class DoctoresM extends ConexionBD{
 		$pdo -> bindParam(":telefono", $datosC["telefono"], PDO::PARAM_INT);
 		$pdo -> bindParam(":direccion", $datosC["direccion"], PDO::PARAM_STR);
 		$pdo -> bindParam(":ciudad", $datosC["ciudad"], PDO::PARAM_STR);
-		$pdo -> bindParam(":fechaNac", $datosC["fechaNac"], PDO::PARAM_STR);
 		$pdo -> bindParam(":sexo", $datosC["sexo"], PDO::PARAM_STR);
 		$pdo -> bindParam(":usuario", $datosC["usuario"], PDO::PARAM_STR);
 		$pdo -> bindParam(":clave", $datosC["clave"], PDO::PARAM_STR);
@@ -137,7 +136,7 @@ class DoctoresM extends ConexionBD{
 //Iniciar sesión doctor
 static public function IngresarDoctorM($tablaBD, $datosC){
 
-	$pdo = ConexionBD::cBD()->prepare("SELECT usuario, clave, apellido, nombre, sexo, foto, rol, id FROM $tablaBD WHERE usuario = :usuario");
+	$pdo = ConexionBD::cBD()->prepare("SELECT usuario, clave,cedula, apellido, nombre,correo, telefono, direccion, ciudad, fechaNac, sexo, foto, rol, id FROM $tablaBD WHERE usuario = :usuario");
 
 	$pdo -> bindParam(":usuario", $datosC["usuario"], PDO::PARAM_STR);
 
@@ -154,7 +153,7 @@ static public function IngresarDoctorM($tablaBD, $datosC){
 //Ver Perfil Doctor
 static public function VerPerfilDoctorM($tablaBD, $id){
 
-	$pdo = ConexionBD::cBD()->prepare("SELECT usuario, clave, apellido, nombre, sexo, foto, rol, id, horarioE, horarioS, id_especialidad FROM $tablaBD WHERE id = :id");
+	$pdo = ConexionBD::cBD()->prepare("SELECT usuario, clave,cedula, apellido, nombre, correo, telefono, direccion, ciudad, fechaNac, sexo, foto, rol, id, horarioE, horarioS, id_especialidad FROM $tablaBD WHERE id = :id");
 
 	$pdo -> bindParam(":id", $id, PDO::PARAM_STR);
 

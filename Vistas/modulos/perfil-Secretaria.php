@@ -36,10 +36,13 @@ if($_SESSION["rol"] != "Secretaria"){
 						    <th>Cedula</th>
 							<th>Apellido</th>
 							<th>Nombre</th>
-							<th>correo</th>
-							<th>telefono</th>
-							<th>direccion</th>
-							<th>Usuario</th>
+							<th>Correo</th>
+							<th>Telefono</th>
+							<th>Direccion</th>
+							<th>Ciudad</th>
+							<th>Fecha de Nacimiento</th>
+							<th>Sexo</th>
+                            <th>Usuario</th>
 							<th>Contraseña</th>
 							<th>Foto</th>
 							<th>Acciones</th>

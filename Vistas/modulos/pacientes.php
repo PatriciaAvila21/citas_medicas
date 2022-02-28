@@ -33,7 +33,7 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 			</div>
 
 			<div class="card-tools">
-											<a href="../view/especialidad/reporte.php" class="btn btn-info btn-border btn-round btn-sm mr-2">
+											<a href="#" class="btn btn-info btn-border btn-round btn-sm mr-2">
 												<span class="btn-label">
 													<i class="fa fa-pencil"></i>
 												</span>
@@ -220,27 +220,26 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 						<div class="col-md-6">
 							<div class="form-group form-group-default">
 								<label>Ciudad:</label>
+								<select class="form-control" name="ciudad">
 								<option>Seleccionar...</option>
-								<select class="form-control" name="ciudad" required>
-								<option value="Masculino">Azuay</option>
-					        	<option value="Femenino">Bolivar</option>
-								<option value="Femenino">Cañar</option>
-								<option value="Femenino">Carchi</option>
-								<option value="Femenino">Chimborazo</option>
-								<option value="Femenino">Cotopaxi</option>
-								<option value="Femenino">El Oro
-								<option value="Femenino">Esmeraldas</option>
-								<option value="Femenino">Galapagos</option>
-								<option value="Femenino">Guayas</option>
-								<option value="Femenino">Imbabura</option>
-								<option value="Femenino">Loja</option>
-								<option value="Femenino">Los Rios</option>
-								<option value="Femenino">Manabi</option>
-								</option>
+								<option value="Azuay">Azuay</option>
+					        	<option value="Bolivar">Bolivar</option>
+								<option value="Cañar">Cañar</option>
+								<option value="Carchi">Carchi</option>
+								<option value="Chimborazo">Chimborazo</option>
+								<option value="Cotopaxi">Cotopaxi</option>
+								<option value="El Oro">El Oro</option>
+								<option value="Esmeraldas">Esmeraldas</option>
+								<option value="Galapagos">Galapagos</option>
+								<option value="Guayas">Guayas</option>
+								<option value="Imbabura">Imbabura</option>
+								<option value="Loja">Loja</option>
+								<option value="Los Rios">Los Rios</option>
+								<option value="Manabi">Manabi</option>
 				                </select>
 							</div>
 						</div>
-
+				
 						<div class="col-md-6">
 							<div class="form-group form-group-default">
 								<label>Fecha nacimiento</label>
@@ -251,7 +250,7 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 						<div class="col-md-6">
 							<div class="form-group form-group-default">
 								<label>Sexo</label>
-				             	<select class="form-control" name="genero" required>
+				             	<select class="form-control" name="genero">
 								 <option>Seleccionar...</option>
 				        		<option value="Masculino">Masculino</option>
 					        	<option value="Femenino">Femenino</option>
@@ -333,87 +332,82 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 					
 					<div class="box-body">
 
-					<div class="form-group">
-							
-							<h2>Cedula:</h2>
+					<div class="col-md-12">
+						    <div class="form-group form-group-default">
+						      <label>Cédula:</label>
+							       <input type="text" maxlength="10" class="form-control" id="cedulaE" name="cedulaE" required>
+							       <input type="hidden" id="Pid" name="Pid">
+					     	</div>
+					</div>
 
-							<input type="text" maxlength="10" class="form-control input-lg" id="cedulaE" name="cedulaE" required>
+					
+					<div class="col-md-6">
+						    <div class="form-group form-group-default">
+						      <label>Apellidos:</label>
+   							    <input type="text" class="form-control" id="apellidoE" name="apellidoE" required>
+						    </div>
+						</div>
 
-							<input type="hidden" id="Pid" name="Pid">
-
+						<div class="col-md-6">
+						    <div class="form-group form-group-default">
+						      <label>Nombres:</label>
+   							    <input type="text" class="form-control" id="nombreE" name="nombreE" required>
+						    </div>
 						</div>
 						
-						<div class="form-group">
-							
-							<h2>Apellido:</h2>
-
-							<input type="text" class="form-control input-lg" id="apellidoE" name="apellidoE" required>
-
+						<div class="col-md-6">
+						    <div class="form-group form-group-default">
+						      <label>Correo Electronico:</label>
+   							    <input type="email" class="form-control" id="correoE" name="correoE" required>
+						    </div>
 						</div>
 
-						<div class="form-group">
-							
-							<h2>Nombre:</h2>
 
-							<input type="text" class="form-control input-lg" id="nombreE" name="nombreE" required>
-
+						<div class="col-md-6">
+						    <div class="form-group form-group-default">
+						      <label>Telefono:</label>
+							  <input name="telefonoE" id="telefonoE" type="text" class="form-control" required maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+						    </div>
 						</div>
 
-						<div class="form-group">
-							
-							<h2>Correo Electronico:</h2>
-
-							<input type="email" class="form-control input-lg" id="correoE" name="correoE" required>
-
+						<div class="col-md-6">
+						    <div class="form-group form-group-default">
+						      <label>Direccion:</label>
+   							    <input type="text" class="form-control" id="direccionE" name="direccionE" required>
+						    </div>
 						</div>
 
-						<div class="form-group">
-							
-							<h2>Telefono:</h2>
 
-							<input name="telefonoE" id="telefonoE" type="text" class="form-control" required maxlength="10" placeholder="Ingrese teléfono" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
-
+						<div class="col-md-6">
+						    <div class="form-group form-group-default">
+						      <label>Ciudad:</label>
+   							    <input type="text" class="form-control" id="ciudadE" name="ciudadE" required>
+						    </div>
 						</div>
+						
 
-						<div class="form-group">
-							
-							<h2>Direccion:</h2>
-
-							<input type="text" class="form-control input-lg" id="direccionE" name="direccionE" required>
-
+						<div class="col-md-6">
+						    <div class="form-group form-group-default">
+						      <label>Documento:</label>
+   							    <input type="text" class="form-control" id="documentoE" name="documentoE" required>
+						    </div>
 						</div>
+			
 
-						<div class="form-group">
-							
-							<h2>Ciudad:</h2>
-
-							<input type="text" class="form-control input-lg" id="ciudadE" name="ciudadE" required>
-
+						<div class="col-md-6">
+						    <div class="form-group form-group-default">
+						      <label>Usuario:</label>
+   							    <input type="text" class="form-control" id="usuarioE" name="usuarioE" required>
+						    </div>
 						</div>
-
-						<div class="form-group">
-							
-							<h2>Documento:</h2>
-
-							<input type="text" class="form-control input-lg" id="documentoE" name="documentoE" required>
-
+			
+						<div class="col-md-6">
+						    <div class="form-group form-group-default">
+						      <label>Contraseña:</label>
+   							    <input type="text" class="form-control" id="claveE" name="claveE" required>
+						    </div>
 						</div>
-
-						<div class="form-group">
-							
-							<h2>Usuario:</h2>
-
-							<input type="text" class="form-control input-lg" id="usuarioE" name="usuarioE" required>
-
-						</div>
-
-						<div class="form-group">
-							
-							<h2>Contraseña:</h2>
-
-							<input type="text" class="form-control input-lg" id="claveE" name="claveE" required>
-
-						</div>
+			
 
 					</div>
 
@@ -422,7 +416,7 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 
 				<div class="modal-footer">
 					
-					<button type="submit" class="btn btn-success">Guardar Cambios</button>
+					<button type="submit" class="btn btn-success">Guardar</button>
 
 					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 

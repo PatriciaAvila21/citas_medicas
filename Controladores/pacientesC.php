@@ -9,7 +9,7 @@ class PacientesC{
 
 			$tablaBD = "pacientes";
 
-			$datosC = array("cedula"=>$_POST["cedula"],"apellido"=>$_POST["apellido"], "nombre"=>$_POST["nombre"], "correo"=>$_POST["correo"], "telefono"=>$_POST["telefono"], "direccion"=>$_POST["direccion"], "ciudad"=>$_POST["ciudad"], "fechaNac"=>$_POST["fechaNac"], "genero"=>$_POST["genero"], "documento"=>$_POST["documento"], "usuario"=>$_POST["usuario"], "clave"=>$_POST["clave"], "rol"=>$_POST["rolP"]);
+			$datosC = array("cedula"=>$_POST["cedula"],"apellido"=>$_POST["apellido"], "nombre"=>$_POST["nombre"], "correo"=>$_POST["correo"], "telefono"=>$_POST["telefono"], "direccion"=>$_POST["direccion"], "ciudad"=>$_POST["ciudad"], "fechaNac"=>$_POST["fechaNac"], "genero"=>$_POST["genero"], "documento"=>$_POST["documento"], "usuario"=>$_POST["usuario"], "clave"=>MD5($_POST['clave']), "rol"=>$_POST["rolP"]);
 
 			$resultado = PacientesM::CrearPacienteM($tablaBD, $datosC);
 
@@ -127,7 +127,7 @@ class PacientesC{
 					$_SESSION["direccion"] = $resultado["direccion"];
 					$_SESSION["ciudad"] = $resultado["ciudad"];
 					$_SESSION["fechaNac"] = $resultado["fechaNac"];
-					$_SESSION["Genero"] = $resultado["genero"];
+					$_SESSION["genero"] = $resultado["genero"];
 					$_SESSION["documento"] = $resultado["documento"];
 					$_SESSION["foto"] = $resultado["foto"];
 					$_SESSION["rol"] = $resultado["rol"];
@@ -159,17 +159,17 @@ class PacientesC{
 
 		echo '<tr>
 				
-				<td>'.$resultado["usuario"].'</td>
-				<td>'.$resultado["clave"].'</td>
-				<td>'.$resultado["nombre"].'</td>
-				<td>'.$resultado["apellido"].'</td>
-				<td>'.$resultado["correo"].'</td>
+				<td>'.$resultado["usuario"]  .'</td>
+				<td>'.$resultado["clave"]    .'</td>
+				<td>'.$resultado["cedula"]   .'</td>
+				<td>'.$resultado["nombre"]   .'</td>
+				<td>'.$resultado["apellido"] .'</td>
+				<td>'.$resultado["correo"]   .'</td>
+				<td>'.$resultado["telefono"] .'</td>
 				<td>'.$resultado["direccion"].'</td>
-				<td>'.$resultado["ciudad"].'</td>
-				<td>'.$resultado["cedula"].'</td>
-				<td>'.$resultado["telefono"].'</td>
-				<td>'.$resultado["fechaNac"].'</td>
-				<td>'.$resultado["genero"].'</td>';
+				<td>'.$resultado["ciudad"]   .'</td>
+				<td>'.$resultado["fechaNac"] .'</td>
+				<td>'.$resultado["genero"]   .'</td>';
 
 				if($resultado["foto"] == ""){
 
@@ -182,9 +182,7 @@ class PacientesC{
 				}
 				
 
-				echo '<td>'.$resultado["documento"].'</td>
-
-				<td>
+				echo '<td>
 					
 					<a href="http://localhost/clinica/perfil-P/'.$resultado["id"].'">
 						<button class="btn btn-success"><i class="fa fa-pencil"></i></button>
@@ -212,29 +210,52 @@ class PacientesC{
 					<div class="row">
 						
 						<div class="col-md-6 col-xs-12">
+					     
+						    <h2>Cedula:</h2>
+							<input type="text" class="input-lg" name="cedulaPerfil" value="'.$resultado["cedula"].'">
+							<input type="hidden" class="input-lg" name="Pid" value="'.$resultado["id"].'">
 							
 							<h2>Nombre:</h2>
 							<input type="text" class="input-lg" name="nombrePerfil" value="'.$resultado["nombre"].'">
-							<input type="hidden" class="input-lg" name="Pid" value="'.$resultado["id"].'">
-
+							
 							<h2>Apellido:</h2>
 							<input type="text" class="input-lg" name="apellidoPerfil" value="'.$resultado["apellido"].'">
 
-							<h2>Usuario:</h2>
-							<input type="text" class="input-lg" name="usuarioPerfil" value="'.$resultado["usuario"].'">
+							<h2>Correro Electronico:</h2>
+							<input type="text" class="input-lg" name="correoPerfil" value="'.$resultado["correo"].'">
 
-							<h2>Clave:</h2>
-							<input type="text" class="input-lg" name="clavePerfil" value="'.$resultado["clave"].'">
+							<h2>Telefono:</h2>
+							<input type="text" class="input-lg" name="telefonoPerfil" value="0'.$resultado["telefono"].'">
 
-							<h2>Documento:</h2>
-							<input type="text" class="input-lg" name="documentoPerfil" value="'.$resultado["documento"].'">
+							<h2>Direccion:</h2>
+					     	<input type="text" class="input-lg" name="direccionPerfil" value="'.$resultado["direccion"].'">
 
-						</div>
+							 <h2>Ciudad:</h2>
+					    	<input type="text" class="input-lg" name="ciudadPerfil" value="'.$resultado["ciudad"].'">
+
+							</div>
+
+						
 
 						<div class="col-md-6 col-xs-12">
+
+
+						<h2>Sexo:</h2>
+						<input type="text" class="input-lg" name="generoPerfil" value="'.$resultado["genero"].'">
+
+						<h2>Fecha de Nacimiento:</h2>
+						<input type="text" class="input-lg" name="fechaNacPerfil" value="'.$resultado["fechaNac"].'">
+
+						<h2>Usuario:</h2>
+						<input type="text" class="input-lg" name="usuarioPerfil" value="'.$resultado["usuario"].'">
+
+						<h2>Clave:</h2>
+						<input type="text" class="input-lg" name="clavePerfil" value="'.$resultado["clave"].'">
+
+						
 							
 							<br><br>
-
+							<h2>Seleccione su foto de perfil:</h2>
 							<input type="file" name="imgPerfil">
 							<br>';
 
@@ -310,7 +331,7 @@ class PacientesC{
 
 			$tablaBD = "pacientes";
 
-			$datosC = array("id"=>$_POST["Pid"], "nombre"=>$_POST["nombrePerfil"], "apellido"=>$_POST["apellidoPerfil"], "usuario"=>$_POST["usuarioPerfil"], "clave"=>$_POST["clavePerfil"], "documento"=>$_POST["documentoPerfil"], "foto"=>$rutaImg);
+			$datosC = array("id"=>$_POST["Pid"], "cedula"=>$_POST["cedulaPerfil"], "nombre"=>$_POST["nombrePerfil"], "apellido"=>$_POST["apellidoPerfil"], "correo"=>$_POST["correoPerfil"], "telefono"=>$_POST["telefonoPerfil"], "direccion"=>$_POST["direccionPerfil"], "ciudad"=>$_POST["ciudadPerfil"], "fechaNac"=>$_POST["fechaNacPerfil"], "usuario"=>$_POST["usuarioPerfil"], "clave"=>$_POST["clavePerfil"], "documento"=>$_POST["documentoPerfil"], "foto"=>$rutaImg);
 
 			$resultado = PacientesM::ActualizarPerfilPacienteM($tablaBD, $datosC);
 

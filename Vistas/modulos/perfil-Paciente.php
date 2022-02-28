@@ -36,10 +36,16 @@ if($_SESSION["rol"] != "Paciente"){
 							
 							<th>Usuario</th>
 							<th>Contraseña</th>
+							<th>Cedula</th>
 							<th>Nombre</th>
 							<th>Apellido</th>
+							<th>Correo</th>
+							<th>Telefono</th>
+							<th>Direccion</th>
+							<th>Ciudad</th>
+							<th>Fecha de nacimiento</th>
+							<th>Sexo</th>
 							<th>Foto</th>
-							<th>Documento</th>
 							<th>Editar</th>
 
 						</tr>

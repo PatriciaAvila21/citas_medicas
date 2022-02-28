@@ -33,11 +33,12 @@ if($_SESSION["rol"] != "Doctor"){
 					<thead>
 						
 						<tr>
-							
-							<th>Usuario</th>
-							<th>Contraseña</th>
+						    <th>Cedula</th>
 							<th>Nombre</th>
 							<th>Apellido</th>
+							<th>Usuario</th>
+							<th>Contraseña</th>
+							<th>Fecha de Nacimiento</th>
 							<th>Foto</th>
 							<th>Especialidad</th>
 							<th>Horarios</th>

@@ -14,7 +14,7 @@ class PacientesM extends ConexionBD{
 		$pdo -> bindParam(":nombre", $datosC["nombre"], PDO::PARAM_STR);
 
 		$pdo -> bindParam(":correo", $datosC["correo"], PDO::PARAM_STR);
-		$pdo -> bindParam(":telefono", $datosC["telefono"], PDO::PARAM_STR);
+		$pdo -> bindParam(":telefono", $datosC["telefono"], PDO::PARAM_INT);
 		$pdo -> bindParam(":direccion", $datosC["direccion"], PDO::PARAM_STR);
 		$pdo -> bindParam(":ciudad", $datosC["ciudad"], PDO::PARAM_STR);
 		$pdo -> bindParam(":fechaNac", $datosC["fechaNac"], PDO::PARAM_STR);
@@ -96,6 +96,7 @@ class PacientesM extends ConexionBD{
 		$pdo -> bindParam("correo", $datosC["correo"], PDO::PARAM_STR);
 		$pdo -> bindParam("telefono", $datosC["telefono"], PDO::PARAM_INT);
 		$pdo -> bindParam("direccion", $datosC["direccion"], PDO::PARAM_STR);
+		$pdo -> bindParam("ciudad", $datosC["ciudad"], PDO::PARAM_STR);
 		$pdo -> bindParam("documento", $datosC["documento"], PDO::PARAM_STR);
 		$pdo -> bindParam("usuario", $datosC["usuario"], PDO::PARAM_STR);
 		$pdo -> bindParam("clave", $datosC["clave"], PDO::PARAM_STR);
@@ -114,7 +115,7 @@ class PacientesM extends ConexionBD{
 	//Ingreso de los Pacientes
 	static public function IngresarPacienteM($tablaBD, $datosC){
 
-		$pdo = ConexionBD::cBD()->prepare("SELECT usuario, clave, apellido, nombre, documento, foto, rol, id FROM $tablaBD WHERE usuario = :usuario");
+		$pdo = ConexionBD::cBD()->prepare("SELECT usuario, clave,cedula, apellido, nombre, correo, telefono, direccion,ciudad, fechaNac, genero, documento, foto, rol, id FROM $tablaBD WHERE usuario = :usuario");
 
 		$pdo -> bindParam(":usuario", $datosC["usuario"], PDO::PARAM_STR);
 
@@ -132,7 +133,7 @@ class PacientesM extends ConexionBD{
 	//Ver Perfil del Paciente
 	static public function VerPerfilPacienteM($tablaBD, $id){
 
-		$pdo = ConexionBD::cBD()->prepare("SELECT usuario, clave, apellido, nombre, documento, foto, rol, id FROM $tablaBD WHERE id = :id");
+		$pdo = ConexionBD::cBD()->prepare("SELECT usuario, clave, cedula, apellido, nombre, documento, correo, telefono, direccion,ciudad,genero, fechaNac, foto, rol, id FROM $tablaBD WHERE id = :id");
 
 		$pdo -> bindParam(":id", $id, PDO::PARAM_INT);
 

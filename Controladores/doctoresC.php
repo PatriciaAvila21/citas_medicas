@@ -9,7 +9,7 @@ class DoctoresC{
 
 			$tablaBD = "doctores";
 
-			$datosC = array("rol"=>$_POST["rolD"], "cedula"=>$_POST["cedula"], "apellido"=>$_POST["apellido"], "nombre"=>$_POST["nombre"], "correo"=>$_POST["correo"], "telefono"=>$_POST["telefono"], "direccion"=>$_POST["direccion"], "ciudad"=>$_POST["ciudad"], "fechaNac"=>$_POST["fechaNac"], "sexo"=>$_POST["sexo"], "id_especialidad"=>$_POST["consultorio"], "usuario"=>$_POST["usuario"], "clave"=>$_POST["clave"]);
+			$datosC = array("rol"=>$_POST["rolD"], "cedula"=>$_POST["cedula"], "apellido"=>$_POST["apellido"], "nombre"=>$_POST["nombre"], "correo"=>$_POST["correo"], "nombre"=>$_POST["nombre"], "telefono"=>$_POST["telefono"], "nombre"=>$_POST["nombre"], "direccion"=>$_POST["direccion"], "nombre"=>$_POST["nombre"], "ciudad"=>$_POST["ciudad"], "nombre"=>$_POST["nombre"], "fechaNac"=>$_POST["fechaNac"], "sexo"=>$_POST["sexo"], "id_especialidad"=>$_POST["consultorio"], "usuario"=>$_POST["usuario"], "clave"=>$_POST["clave"]);
 
 			$resultado = DoctoresM::CrearDoctorM($tablaBD, $datosC);
 
@@ -58,7 +58,7 @@ class DoctoresC{
 
 			$tablaBD = "doctores";
 
-			$datosC = array("id"=>$_POST["Did"], "cedula"=>$_POST["cedulaE"], "apellido"=>$_POST["apellidoE"], "nombre"=>$_POST["nombreE"], "correo"=>$_POST["correoE"], "telefono"=>$_POST["telefonoE"],  "direccion"=>$_POST["direccionE"], "ciudad"=>$_POST["ciudadE"], "fechaNac"=>$_POST["fechaNacE"], "sexo"=>$_POST["sexoE"], "usuario"=>$_POST["usuarioE"], "clave"=>$_POST["claveE"]);
+			$datosC = array("id"=>$_POST["Did"], "cedula"=>$_POST["cedulaE"], "apellido"=>$_POST["apellidoE"], "nombre"=>$_POST["nombreE"], "correo"=>$_POST["correoE"], "telefono"=>$_POST["telefonoE"], "direccion"=>$_POST["direccionE"], "ciudad"=>$_POST["ciudadE"],"sexo"=>$_POST["sexoE"], "usuario"=>$_POST["usuarioE"], "clave"=>$_POST["claveE"]);
 
 			$resultado = DoctoresM::ActualizarDoctorM($tablaBD, $datosC);
 
@@ -126,6 +126,7 @@ class DoctoresC{
 					$_SESSION["Ingresar"] = true;
 
 					$_SESSION["id"] = $resultado["id"];
+					$_SESSION["cedula"] = $resultado["cedula"];
 					$_SESSION["usuario"] = $resultado["usuario"];
 					$_SESSION["clave"] = $resultado["clave"];
 					$_SESSION["apellido"] = $resultado["apellido"];
@@ -163,15 +164,12 @@ class DoctoresC{
 		$resultado = DoctoresM::VerPerfilDoctorM($tablaBD, $id);
 
 		echo '<tr>
-				
-				<td>'.$resultado["usuario"].'</td>
-				<td>'.$resultado["clave"].'</td>
+		
+		        <td>'.$resultado["cedula"].'</td>
 				<td>'.$resultado["nombre"].'</td>
 				<td>'.$resultado["apellido"].'</td>
-				<td>'.$resultado["correo"].'</td>
-				<td>'.$resultado["telefono"].'</td>
-				<td>'.$resultado["direccion"].'</td>
-				<td>'.$resultado["ciudad"].'</td>
+				<td>'.$resultado["usuario"].'</td>
+				<td>'.$resultado["clave"].'</td>
 				<td>'.$resultado["fechaNac"].'</td>';
 
 				if($resultado["foto"] == ""){

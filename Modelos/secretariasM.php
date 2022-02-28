@@ -7,7 +7,7 @@ class SecretariasM extends ConexionBD{
 	//Ingreso Secretarias
 	static public function IngresarSecretariaM($tablaBD, $datosC){
 
-		$pdo = ConexionBD::cBD()->prepare("SELECT cedula, usuario, clave, nombre, apellido, correo, telefono, direccion, ciudad, genero, foto, rol, id FROM
+		$pdo = ConexionBD::cBD()->prepare("SELECT cedula, usuario, clave, nombre, apellido, correo, telefono, direccion, ciudad, fechaNac, genero, foto, rol, id FROM
 		 $tablaBD WHERE usuario = :usuario");
 
 		$pdo -> bindParam(":usuario", $datosC["usuario"], PDO::PARAM_STR);
@@ -26,7 +26,7 @@ class SecretariasM extends ConexionBD{
 	//Ver perfil secretaria
 	static public function VerPerfilSecretariaM($tablaBD, $id){
 
-		$pdo = ConexionBD::cBD()->prepare("SELECT cedula, usuario, clave, nombre, apellido, correo, telefono, direccion, ciudad, genero, foto, rol, id FROM $tablaBD WHERE id = :id");
+		$pdo = ConexionBD::cBD()->prepare("SELECT cedula, usuario, clave, nombre, apellido, correo, telefono, direccion, ciudad, fechaNac,genero, foto, rol, id FROM $tablaBD WHERE id = :id");
 
 		$pdo -> bindParam(":id", $id, PDO::PARAM_INT);
 
@@ -44,7 +44,7 @@ class SecretariasM extends ConexionBD{
 	//Actualizar Perfil Secretaria
 	static public function ActualizarPerfilSecretariaM($tablaBD, $datosC){
 
-		$pdo = ConexionBD::cBD()->prepare("UPDATE $tablaBD SET cedula = :cedula, usuario = :usuario, clave = :clave, nombre = :nombre, apellido = :apellido, correo = :correo, telefono = :telefono, direccion = :direccion, ciudad = :ciudad, genero = :genero, foto = :foto WHERE id = :id");
+		$pdo = ConexionBD::cBD()->prepare("UPDATE $tablaBD SET cedula = :cedula, usuario = :usuario, clave = :clave, nombre = :nombre, apellido = :apellido, correo = :correo, telefono = :telefono, direccion = :direccion, ciudad = :ciudad, fechaNac = :fechaNac, genero = :genero, foto = :foto WHERE id = :id");
 
 		$pdo -> bindParam(":id", $datosC["id"], PDO::PARAM_INT);
 		$pdo -> bindParam(":cedula", $datosC["cedula"], PDO::PARAM_INT);
@@ -53,9 +53,10 @@ class SecretariasM extends ConexionBD{
 		$pdo -> bindParam(":nombre", $datosC["nombre"], PDO::PARAM_STR);
 		$pdo -> bindParam(":apellido", $datosC["apellido"], PDO::PARAM_STR);
 		$pdo -> bindParam(":correo", $datosC["correo"], PDO::PARAM_STR);
-		$pdo -> bindParam(":telefono", $datosC["telefono"], PDO::PARAM_STR);
+		$pdo -> bindParam(":telefono", $datosC["telefono"], PDO::PARAM_INT);
 		$pdo -> bindParam(":direccion", $datosC["direccion"], PDO::PARAM_STR);
 		$pdo -> bindParam(":ciudad", $datosC["ciudad"], PDO::PARAM_STR);
+		$pdo -> bindParam(":fechaNac", $datosC["fechaNac"], PDO::PARAM_STR);
 		$pdo -> bindParam(":genero", $datosC["genero"], PDO::PARAM_STR);
 		$pdo -> bindParam(":foto", $datosC["foto"], PDO::PARAM_STR);
 

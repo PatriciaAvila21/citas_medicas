@@ -29,6 +29,7 @@ class SecretariasC{
 					$_SESSION["telefono"] = $resultado["telefono"];
 					$_SESSION["direccion"] = $resultado["direccion"];
 					$_SESSION["ciudad"] = $resultado["ciudad"];
+					$_SESSION["fechaNac"] = $resultado["fechaNac"];
 					$_SESSION["genero"] = $resultado["genero"];
 					$_SESSION["foto"]= $resultado["foto"];
 					$_SESSION["rol"] = $resultado["rol"];
@@ -75,6 +76,12 @@ class SecretariasC{
 				<td>'.$resultado["telefono"].'</td>
 
 				<td>'.$resultado["direccion"].'</td>
+
+				<td>'.$resultado["ciudad"].'</td>
+
+				<td>'.$resultado["fechaNac"].'</td>
+
+				<td>'.$resultado["genero"].'</td>
 
 				<td>'.$resultado["usuario"].'</td>
 
@@ -139,6 +146,10 @@ class SecretariasC{
 						
 						<h2>Ciudad:</h2>
 						<input type="text" class="input-lg" name="ciudadP" value="'.$resultado["ciudad"].'">
+
+					
+						<h2>Fecha de Nacimiento:</h2>
+						<input type="date" class="input-lg" name="fechaNacP" value="'.$resultado["fechaNac"].'">
 
 						
 						<h2>Usuario:</h2>
@@ -245,7 +256,7 @@ class SecretariasC{
 
 			$tablaBD = "secretarias";
 
-			$datosC = array("id"=>$_POST["idP"],"cedula"=>$_POST["cedulaP"], "usuario"=>$_POST["usuarioP"], "apellido"=>$_POST["apellidoP"], "nombre"=>$_POST["nombreP"],"correo"=>$_POST["correoP"], "telefono"=>$_POST["telefonoP"],"direccion"=>$_POST["direccionP"],"ciudad"=>$_POST["ciudadP"],"genero"=>$_POST["generoP"], "clave"=>$_POST["claveP"], "foto"=>$rutaImg);
+			$datosC = array("id"=>$_POST["idP"],"cedula"=>$_POST["cedulaP"], "usuario"=>$_POST["usuarioP"], "apellido"=>$_POST["apellidoP"], "nombre"=>$_POST["nombreP"],"correo"=>$_POST["correoP"], "telefono"=>$_POST["telefonoP"],"direccion"=>$_POST["direccionP"],"ciudad"=>$_POST["ciudadP"],"fechaNac"=>$_POST["fechaNacP"],"genero"=>$_POST["generoP"], "clave"=>$_POST["claveP"], "foto"=>$rutaImg);
 
 			$resultado = SecretariasM::ActualizarPerfilSecretariaM($tablaBD, $datosC);
 
