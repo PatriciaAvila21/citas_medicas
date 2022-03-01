@@ -145,6 +145,10 @@ class DoctoresC{
 					window.location = "inicio";
 					</script>';
 
+				}else{
+                 
+					echo '<div class="alert alert-danger">Error al Ingresar</div>';
+
 				}
 
 			}
@@ -226,10 +230,13 @@ class DoctoresC{
 						
 						<div class="col-md-6 col-xs-12">
 							
-							<h2>Nombre:</h2>
-							<input type="text" class="input-lg" name="nombrePerfil" value="'.$resultado["nombre"].'">
+						    <h2>Cedula:</h2>
+							<input type="text" class="input-lg" name="cedulaPerfil" value="'.$resultado["cedula"].'">
 							<input type="hidden" name="Did" value="'.$resultado["id"].'">	
 
+							<h2>Nombre:</h2>
+							<input type="text" class="input-lg" name="nombrePerfil" value="'.$resultado["nombre"].'">
+							
 							<h2>Apellido:</h2>
 							<input type="text" class="input-lg" name="apellidoPerfil" value="'.$resultado["apellido"].'">
 
@@ -239,14 +246,15 @@ class DoctoresC{
 							<h2>Contraseña:</h2>
 							<input type="text" class="input-lg" name="clavePerfil" value="'.$resultado["clave"].'">';
 
+							
 
 				$columna = "id";
 				$valor = $resultado["id_especialidad"];
 
 				$consultorio = ConsultoriosC::VerConsultoriosC($columna, $valor);
 
-				echo '<h2>Consultorio Actual: '.$consultorio["nombre"].'</h2>
-					<h3>Cambiar Consultorio</h3>
+				echo '<h2>Su area de trabajo es: '.$consultorio["nombre"].'</h2>
+					<h3>Cambiar especialidad</h3>
 							<select class="input-lg" name="consultorioPerfil">';
 								
 							$columna = null;
@@ -274,8 +282,25 @@ class DoctoresC{
 
 
 						<div class="col-md-6 col-xs-12">
-							
+
+
+						<h2>Correo:</h2>
+						<input type="text" class="input-lg" name="correoPerfil" value="'.$resultado["correo"].'">
+
+						<h2>Direccion:</h2>
+						<input type="text" class="input-lg" name="direccionPerfil" value="'.$resultado["direccion"].'">
+
+						<h2>Ciudad:</h2>
+						<input type="text" class="input-lg" name="ciudadPerfil" value="'.$resultado["ciudad"].'">
+
+						<h2>Fecha de Nacimiento:</h2>
+						<input type="text" class="input-lg" name="fechaNacPerfil" value="'.$resultado["fechaNac"].'">
+
+						<h2>Sexo:</h2>
+						<input type="text" class="input-lg" name="sexoPerfil" value="'.$resultado["sexo"].'">
+						
 							<br><br>
+
 
 							<input type="file" name="imgPerfil">
 							<br>';

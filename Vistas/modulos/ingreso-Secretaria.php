@@ -1,6 +1,6 @@
 <div class="login-box">
   <div class="login-logo">
-    <a href="#"><b>Citas Medicas</b></a>
+    <a href="seleccionar"><b>Ingrese sus credenciales</b></a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
@@ -37,7 +37,6 @@ $ingreso -> IngresarSecretariaC();
 
 ?>
     </form>
-
   </div>
   <!-- /.login-box-body -->
 </div>

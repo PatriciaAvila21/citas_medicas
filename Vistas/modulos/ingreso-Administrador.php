@@ -1,10 +1,10 @@
 <div class="login-box">
   <div class="login-logo">
-    <a href="#"><b>Clínica Médica</b></a>
+    <a href="seleccionar"><b>Ingrese sus credenciales</b></a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Ingresar como Administrador</p>
+    <p class="login-box-msg">Administrador</p>
 
     <form method="post">
 

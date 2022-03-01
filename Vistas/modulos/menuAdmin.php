@@ -21,14 +21,14 @@
         <li>
           <a href="http://localhost/clinica/doctores">
             <i class="fa fa-user-md"></i>
-            <span>Doctores</span>
+            <span>Médicos</span>
           </a>
         </li>
 
         <li>
           <a href="http://localhost/clinica/consultorios">
             <i class="fa fa-medkit"></i>
-            <span>Consultorios</span>
+            <span>Especialidades</span>
           </a>
         </li>
 

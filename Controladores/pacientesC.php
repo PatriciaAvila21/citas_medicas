@@ -9,7 +9,7 @@ class PacientesC{
 
 			$tablaBD = "pacientes";
 
-			$datosC = array("cedula"=>$_POST["cedula"],"apellido"=>$_POST["apellido"], "nombre"=>$_POST["nombre"], "correo"=>$_POST["correo"], "telefono"=>$_POST["telefono"], "direccion"=>$_POST["direccion"], "ciudad"=>$_POST["ciudad"], "fechaNac"=>$_POST["fechaNac"], "genero"=>$_POST["genero"], "documento"=>$_POST["documento"], "usuario"=>$_POST["usuario"], "clave"=>MD5($_POST['clave']), "rol"=>$_POST["rolP"]);
+			$datosC = array("cedula"=>$_POST["cedula"],"apellido"=>$_POST["apellido"], "nombre"=>$_POST["nombre"], "correo"=>$_POST["correo"], "telefono"=>$_POST["telefono"], "direccion"=>$_POST["direccion"], "ciudad"=>$_POST["ciudad"], "fechaNac"=>$_POST["fechaNac"], "genero"=>$_POST["genero"], "documento"=>$_POST["documento"], "usuario"=>$_POST["usuario"], "clave"=>$_POST["clave"], "rol"=>$_POST["rolP"]);
 
 			$resultado = PacientesM::CrearPacienteM($tablaBD, $datosC);
 
@@ -25,6 +25,32 @@ class PacientesC{
 		}
 
 	}
+
+		//Registrar Pacientes
+		public function RegistroPacienteC(){
+	
+			if(isset($_POST["rolP"])){
+	
+				$tablaBD = "pacientes";
+	
+				$datosC = array("cedula"=>$_POST["cedula"],"apellido"=>$_POST["apellido"], "nombre"=>$_POST["nombre"], "correo"=>$_POST["correo"], "telefono"=>$_POST["telefono"], "direccion"=>$_POST["direccion"], "ciudad"=>$_POST["ciudad"], "fechaNac"=>$_POST["fechaNac"], "genero"=>$_POST["genero"], "documento"=>$_POST["documento"], "usuario"=>$_POST["usuario"], "clave"=>MD5($_POST['clave']), "rol"=>$_POST["rolP"]);
+	
+				$resultado = PacientesM::CrearPacienteM($tablaBD, $datosC);
+	
+				if($resultado == true){
+	
+					echo "<script>
+	                alert('Usuario registrado con exito: $nombre');
+					window.location = 'ingreso-Paciente';
+					</script>";
+					
+	
+				}
+		
+	
+			}
+	
+		}
 
 
 
@@ -136,6 +162,10 @@ class PacientesC{
 
 					window.location = "inicio";
 					</script>';
+
+				}else{
+                 
+					echo '<div class="alert alert-danger">Error al Ingresar</div>';
 
 				}
 
