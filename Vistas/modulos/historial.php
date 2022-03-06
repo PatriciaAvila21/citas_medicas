@@ -81,7 +81,6 @@ if($_SESSION["id"] != substr($_GET["url"], 10)){
 
 						?> 
 						
-
 					</tbody>
 
 				</table>

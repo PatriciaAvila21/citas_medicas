@@ -174,7 +174,7 @@ if($_SESSION["id"] != substr($_GET["url"], 6)){
 
 				<div class="modal-footer">
 					
-					<button type="submit" class="btn btn-primary">Pedir Cita</button>
+					<button type="submit" class="btn btn-primary">Agendar Cita</button>
 
 					<button type="button" class="btn btn-danger">Cancelar</button>
 

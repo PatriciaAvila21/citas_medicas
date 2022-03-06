@@ -204,7 +204,7 @@ class DoctoresC{
 
 				<td>
 					
-					<a href="http://localhost/clinica/perfil-D/'.$resultado["id"].'">
+					<a href="http://localhost/citas_medicas/perfil-D/'.$resultado["id"].'">
 						<button class="btn btn-success"><i class="fa fa-pencil"></i></button>
 					</a>
 
@@ -307,11 +307,11 @@ class DoctoresC{
 
 							if($resultado["foto"] == ""){
 
-								echo '<img src="http://localhost/clinica/Vistas/img/defecto.png" class="img-responsive" width="200px">';
+								echo '<img src="http://localhost/citas_medicas/Vistas/img/defecto.png" class="img-responsive" width="200px">';
 
 							}else{
 
-								echo '<img src="http://localhost/clinica/'.$resultado["foto"].'" class="img-responsive" width="200px">';
+								echo '<img src="http://localhost/citas_medicas/'.$resultado["foto"].'" class="img-responsive" width="200px">';
 
 								
 							}
@@ -386,7 +386,7 @@ class DoctoresC{
 
 				echo '<script>
 
-				window.location = "http://localhost/clinica/perfil-Doctor/'.$resultado["id"].'";
+				window.location = "http://localhost/citas_medicas/perfil-Doctor/'.$resultado["id"].'";
 				</script>';
 
 			}

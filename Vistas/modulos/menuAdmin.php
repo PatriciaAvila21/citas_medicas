@@ -5,35 +5,35 @@
       <ul class="sidebar-menu">
         
         <li>
-          <a href="http://localhost/clinica/inicio">
+          <a href="http://localhost/citas_medicas/inicio">
             <i class="fa fa-home"></i>
             <span>Inicio</span>
           </a>
         </li>
 
         <li>
-          <a href="http://localhost/clinica/secretarias">
+          <a href="http://localhost/citas_medicas/secretarias">
             <i class="fa fa-female"></i>
             <span>Secretarias</span>
           </a>
         </li>
 
         <li>
-          <a href="http://localhost/clinica/doctores">
+          <a href="http://localhost/citas_medicas/doctores">
             <i class="fa fa-user-md"></i>
             <span>Médicos</span>
           </a>
         </li>
 
         <li>
-          <a href="http://localhost/clinica/consultorios">
+          <a href="http://localhost/citas_medicas/consultorios">
             <i class="fa fa-medkit"></i>
             <span>Especialidades</span>
           </a>
         </li>
 
         <li>
-          <a href="http://localhost/clinica/pacientes">
+          <a href="http://localhost/citas_medicas/pacientes">
             <i class="fa fa-users"></i>
             <span>Pacientes</span>
           </a>

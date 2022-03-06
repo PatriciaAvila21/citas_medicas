@@ -1,10 +1,10 @@
 <header class="main-header">
     <!-- Logo -->
-    <a href="http://localhost/clinica/inicio" class="logo">
+    <a href="http://localhost/citas_medicas/inicio" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b></b></span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Inicio</b></span>
+      <span class="logo-lg"><b>Hospital Básico</b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -26,11 +26,11 @@
 
               if($_SESSION["foto"] == ""){
 
-                  echo '<img src="http://localhost/clinica/Vistas/img/defecto.png" class="user-image" alt="User Image">';
+                  echo '<img src="http://localhost/citas_medicas/Vistas/img/defecto.png" class="user-image" alt="User Image">';
 
                       }else{
 
-                  echo '<img src="http://localhost/clinica/'.$_SESSION["foto"].'" class="user-image" alt="User Image">';
+                  echo '<img src="http://localhost/citas_medicas/'.$_SESSION["foto"].'" class="user-image" alt="User Image">';
 
                  }
 
@@ -48,13 +48,13 @@
 
                 <?php
 
-                       echo '<a href="http://localhost/clinica/perfil-'.$_SESSION["rol"].'" class="btn btn-primary btn-flat">Perfil</a>';
+                       echo '<a href="http://localhost/citas_medicas/perfil-'.$_SESSION["rol"].'" class="btn btn-primary btn-flat">Perfil</a>';
 
                     ?>
                 </div>
 
                 <div class="pull-right">
-                  <a href="http://localhost/clinica/salir" class="btn btn-danger btn-flat">Salir</a>
+                  <a href="http://localhost/citas_medicas/salir" class="btn btn-danger btn-flat">Salir</a>
                 </div>
               </li>
             </ul>
