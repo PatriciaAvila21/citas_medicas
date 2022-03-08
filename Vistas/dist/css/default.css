@@ -1,0 +1,37 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #eee;
+
+    
+}
+
+#main{
+    padding: 20px 0;
+    width: 500px;
+    margin: 0 auto;
+}
+
+.center{
+    text-align: center
+}
+
+.error{
+    color: #ac2323;
+}
+input[type="submit"] { 
+    padding: 10px;
+    color: rgb(245, 245, 245);
+    background: #0098cb;
+    width: 320px;
+    margin: 20px auto;
+    margin-top: 0;
+    border: 10;
+    border-radius: 3px;
+    cursor: pointer;
+
+}
