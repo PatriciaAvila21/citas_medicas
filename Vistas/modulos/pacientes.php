@@ -41,12 +41,7 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 												</span>
 												Exportar
 											</a>
-											<a href="#" class="btn btn-info btn-border btn-round btn-sm mr-2">
-												<span class="btn-label">
-													<i class="fa fa-pencil"></i>
-												</span>
-												Exportar
-											</a>
+											
 											<a href="#" class="btn btn-info btn-border btn-round btn-sm">
 												<span class="btn-label">
 													<i class="fa fa-print"></i>
@@ -56,10 +51,14 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 										</div>
 										<div class="card-body">
 
+										
+
 
 			<div class="box-body">-->
+
+			
 				
-				<table class="table table-bordered table-hover table-striped DT" >
+				<table class="table table-bordered table-hover table-striped DT"  >
 					
 					<thead>
 						
@@ -74,8 +73,6 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 							<th>Direccion</th>
 							<th>Fecha de Nacimiento</th>
 							<th>Foto</th>
-							<th>Usuario</th>
-							<th>Contraseña</th>
 							<th style="width: 10%" >Editar / Borrar</th>
 
 						</tr>
@@ -92,8 +89,7 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 							<th>Direccion</th>
 							<th>Fecha de Nacimiento</th>
 							<th>Foto</th>
-							<th>Usuario</th>
-							<th>Contraseña</th>
+
 							<th>Editar / Borrar</th>
 						</tr>
 					</tfoot>
@@ -131,9 +127,7 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 									}
 									
 
-									echo '<td>'.$value["usuario"].'</td>
-
-									<td>'.$value["clave"].'</td>
+									echo '
 
 									<td>
 										
@@ -296,7 +290,7 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 						<div class="col-md-6">
 							<div class="form-group form-group-default">
 								<label>Contraseña:</label>
-								<input  name="clave" type="text" class="form-control" placeholder="Ingrese su contraseña" required>
+								<input  name="clave" type="password" class="form-control" placeholder="Ingrese su contraseña" required>
 							</div>
 						</div>
 
@@ -414,7 +408,7 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 						<div class="col-md-6">
 						    <div class="form-group form-group-default">
 						      <label>Contraseña:</label>
-   							    <input type="text" class="form-control" id="claveE" name="claveE" required>
+   							    <input type="password" class="form-control" id="clave" name="clave" required>
 						    </div>
 						</div>
 			

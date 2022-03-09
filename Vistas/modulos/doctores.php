@@ -49,7 +49,7 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 										<div class="card-body">
 			<div class="box-body">-->
 				
-				<table class="table table-bordered table-hover table-striped DT">
+				<table class="table table-bordered table-hover table-striped DT" >
 					
 					<thead>
 						
@@ -62,8 +62,7 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 							<th>Correo</th>
 							<th>Foto</th>
 							<th>Consultorio</th>
-							<th>Usuario</th>
-							<th>Contraseña</th>
+
 							<th style="width: 10%">Editar / Borrar</th>
 
 						</tr>
@@ -78,8 +77,7 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 							<th>Correo</th>
 							<th>Foto</th>
 							<th>Consultorio</th>
-							<th>Usuario</th>
-							<th>Contraseña</th>
+
 							<th>Editar / Borrar</th>
 						</tr>
 					</tfoot>
@@ -121,18 +119,16 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 
 									echo '<td>'.$consultorio["nombre"].'</td>
 
-									<td>'.$value["usuario"].'</td>
-
-									<td>'.$value["clave"].'</td>
+									
 
 									<td>
 										
-										<div class="btn-group">
+										<div class="text-center">
 											
 											
-											<button class="btn btn-success EditarDoctor" Did="'.$value["id"].'" data-toggle="modal" data-target="#EditarDoctor"><i class="fa fa-pencil"></i> Editar</button>
+											<button class="btn btn-success EditarDoctor" Did="'.$value["id"].'" data-toggle="modal" data-target="#EditarDoctor"><i class="fa fa-pencil"></i></button>
 											
-											<button class="btn btn-danger EliminarDoctor" Did="'.$value["id"].'" imgD="'.$value["foto"].'"><i class="fa fa-times"></i> Borrar</button>
+											<button class="btn btn-danger EliminarDoctor" Did="'.$value["id"].'" imgD="'.$value["foto"].'"><i class="fa fa-times"></i></button>
 											
 
 										</div>
@@ -392,30 +388,12 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
    							    <input type="text" class="form-control" id="direccionE" name="direccionE" required>
 						    </div>
 						</div>
-
 						<div class="col-md-6">
-							<div class="form-group form-group-default">
-								<label>Ciudad:</label>
-								<select class="form-control" name="ciudadE">
-								<option id="ciudadE"></option>
-								<option value="Azuay">Azuay</option>
-					        	<option value="Bolivar">Bolivar</option>
-								<option value="Cañar">Cañar</option>
-								<option value="Carchi">Carchi</option>
-								<option value="Chimborazo">Chimborazo</option>
-								<option value="Cotopaxi">Cotopaxi</option>
-								<option value="El Oro">El Oro</option>
-								<option value="Esmeraldas">Esmeraldas</option>
-								<option value="Galapagos">Galapagos</option>
-								<option value="Guayas">Guayas</option>
-								<option value="Imbabura">Imbabura</option>
-								<option value="Loja">Loja</option>
-								<option value="Los Rios">Los Rios</option>
-								<option value="Manabi">Manabi</option>
-				                </select>
-							</div>
+						    <div class="form-group form-group-default">
+						      <label>Ciudad:</label>
+   							    <input type="text" class="form-control" id="ciudadE" name="ciudadE" required>
+						    </div>
 						</div>
-
 						
 						<div class="col-md-6">
 							<div class="form-group form-group-default">
@@ -439,7 +417,7 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 						<div class="col-md-6">
 							<div class="form-group form-group-default">
 								<label>Contraseña:</label>
-								<input  id="claveE" name="claveE" type="text" class="form-control" placeholder="Ingrese su contraseña" required>
+								<input  id="clave" name="clave" type="password" class="form-control" placeholder="Ingrese su contraseña" required>
 							</div>
 						</div>
 						

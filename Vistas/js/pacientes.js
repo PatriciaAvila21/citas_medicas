@@ -33,13 +33,13 @@ $(".DT").on("click", ".EditarPaciente", function(){
 			$("#cedulaE").val(resultado["cedula"]);
 			$("#apellidoE").val(resultado["apellido"]);
 			$("#nombreE").val(resultado["nombre"]);
-			$("#correoE").val(resultado["correo"]);
 			$("#telefonoE").val(resultado["telefono"]);
+			$("#correoE").val(resultado["correo"]);
 			$("#direccionE").val(resultado["direccion"]);
 			$("#ciudadE").val(resultado["ciudad"]);
 			$("#documentoE").val(resultado["documento"]);
 			$("#usuarioE").val(resultado["usuario"]);
-			$("#claveE").val(resultado["clave"]);
+			$("#clave").val(resultado["clave"]);
 
 		}
 

@@ -22,11 +22,12 @@ $(".DT").on("click", ".EditarDoctor", function(){
 			$("#apellidoE").val(resultado["apellido"]);
 			$("#nombreE").val(resultado["nombre"]);
 			$("#telefonoE").val(resultado["telefono"]);
+			$("#correoE").val(resultado["correo"]);
 			$("#direccionE").val(resultado["direccion"]);
 			$("#ciudadE").val(resultado["ciudad"]);
 					
 			$("#usuarioE").val(resultado["usuario"]);
-			$("#claveE").val(resultado["clave"]);
+			$("#clave").val(resultado["clave"]);
 
 			$("#sexoE").html(resultado["sexo"]);
 			$("#sexoE").val(resultado["sexo"]);
@@ -49,7 +50,7 @@ $(".DT").on("click", ".EliminarDoctor", function(){
 
 })
 
-
+/*
 $(".DT").DataTable({
 
 	"language": {
@@ -75,4 +76,4 @@ $(".DT").DataTable({
 
 	}
 
-})
+})*/

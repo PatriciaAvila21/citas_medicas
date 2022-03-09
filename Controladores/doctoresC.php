@@ -9,7 +9,7 @@ class DoctoresC{
 
 			$tablaBD = "doctores";
 
-			$datosC = array("rol"=>$_POST["rolD"], "cedula"=>$_POST["cedula"], "apellido"=>$_POST["apellido"], "nombre"=>$_POST["nombre"], "correo"=>$_POST["correo"], "nombre"=>$_POST["nombre"], "telefono"=>$_POST["telefono"], "nombre"=>$_POST["nombre"], "direccion"=>$_POST["direccion"], "nombre"=>$_POST["nombre"], "ciudad"=>$_POST["ciudad"], "nombre"=>$_POST["nombre"], "fechaNac"=>$_POST["fechaNac"], "sexo"=>$_POST["sexo"], "id_especialidad"=>$_POST["consultorio"], "usuario"=>$_POST["usuario"], "clave"=>$_POST["clave"]);
+			$datosC = array("rol"=>$_POST["rolD"], "cedula"=>$_POST["cedula"], "apellido"=>$_POST["apellido"], "nombre"=>$_POST["nombre"], "correo"=>$_POST["correo"], "nombre"=>$_POST["nombre"], "telefono"=>$_POST["telefono"], "nombre"=>$_POST["nombre"], "direccion"=>$_POST["direccion"], "nombre"=>$_POST["nombre"], "ciudad"=>$_POST["ciudad"], "nombre"=>$_POST["nombre"], "fechaNac"=>$_POST["fechaNac"], "sexo"=>$_POST["sexo"], "id_especialidad"=>$_POST["consultorio"], "usuario"=>$_POST["usuario"], "clave"=>MD5($_POST["clave"]));
 
 			$resultado = DoctoresM::CrearDoctorM($tablaBD, $datosC);
 
@@ -58,7 +58,7 @@ class DoctoresC{
 
 			$tablaBD = "doctores";
 
-			$datosC = array("id"=>$_POST["Did"], "cedula"=>$_POST["cedulaE"], "apellido"=>$_POST["apellidoE"], "nombre"=>$_POST["nombreE"], "correo"=>$_POST["correoE"], "telefono"=>$_POST["telefonoE"], "direccion"=>$_POST["direccionE"], "ciudad"=>$_POST["ciudadE"],"sexo"=>$_POST["sexoE"], "usuario"=>$_POST["usuarioE"], "clave"=>$_POST["claveE"]);
+			$datosC = array("id"=>$_POST["Did"], "cedula"=>$_POST["cedulaE"], "apellido"=>$_POST["apellidoE"], "nombre"=>$_POST["nombreE"], "correo"=>$_POST["correoE"], "telefono"=>$_POST["telefonoE"], "direccion"=>$_POST["direccionE"], "ciudad"=>$_POST["ciudadE"],"sexo"=>$_POST["sexoE"], "usuario"=>$_POST["usuarioE"], "clave"=>MD5($_POST['clave']));
 
 			$resultado = DoctoresM::ActualizarDoctorM($tablaBD, $datosC);
 

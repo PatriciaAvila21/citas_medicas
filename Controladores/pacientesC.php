@@ -9,7 +9,7 @@ class PacientesC{
 
 			$tablaBD = "pacientes";
 
-			$datosC = array("cedula"=>$_POST["cedula"],"apellido"=>$_POST["apellido"], "nombre"=>$_POST["nombre"], "correo"=>$_POST["correo"], "telefono"=>$_POST["telefono"], "direccion"=>$_POST["direccion"], "ciudad"=>$_POST["ciudad"], "fechaNac"=>$_POST["fechaNac"], "genero"=>$_POST["genero"], "documento"=>$_POST["documento"], "usuario"=>$_POST["usuario"], "clave"=>$_POST["clave"], "rol"=>$_POST["rolP"]);
+			$datosC = array("cedula"=>$_POST["cedula"],"apellido"=>$_POST["apellido"], "nombre"=>$_POST["nombre"], "correo"=>$_POST["correo"], "telefono"=>$_POST["telefono"], "direccion"=>$_POST["direccion"], "ciudad"=>$_POST["ciudad"], "fechaNac"=>$_POST["fechaNac"], "genero"=>$_POST["genero"], "documento"=>$_POST["documento"], "usuario"=>$_POST["usuario"], "clave"=>MD5($_POST["clave"]), "rol"=>$_POST["rolP"]);
 
 			$resultado = PacientesM::CrearPacienteM($tablaBD, $datosC);
 
@@ -106,7 +106,7 @@ class PacientesC{
 
 			$tablaBD = "pacientes";
 
-			$datosC = array("id"=>$_POST["Pid"], "cedula"=>$_POST["cedulaE"], "apellido"=>$_POST["apellidoE"], "nombre"=>$_POST["nombreE"], "correo"=>$_POST["correoE"], "telefono"=>$_POST["telefonoE"], "direccion"=>$_POST["direccionE"], "ciudad"=>$_POST["ciudadE"], "documento"=>$_POST["documentoE"], "usuario"=>$_POST["usuarioE"], "clave"=>$_POST["claveE"]);
+			$datosC = array("id"=>$_POST["Pid"], "cedula"=>$_POST["cedulaE"], "apellido"=>$_POST["apellidoE"], "nombre"=>$_POST["nombreE"], "correo"=>$_POST["correoE"], "telefono"=>$_POST["telefonoE"], "direccion"=>$_POST["direccionE"], "ciudad"=>$_POST["ciudadE"], "documento"=>$_POST["documentoE"], "usuario"=>$_POST["usuarioE"], "clave"=>MD5($_POST["clave"]));
 
 			$resultado = PacientesM::ActualizarPacienteM($tablaBD, $datosC);
 			
