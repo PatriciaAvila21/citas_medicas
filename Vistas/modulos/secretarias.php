@@ -35,7 +35,7 @@ if($_SESSION["rol"] != "Administrador"){
 
 			<div class="box-body">
 				
-				<table class="table table-bordered table-hover table-striped dt-responsive DT">
+				<table class="table table-bordered table-hover table-striped dt-responsive DT" id="tableSecretaria">
 					
 					<thead>
 						

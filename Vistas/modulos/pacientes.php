@@ -14,6 +14,7 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 
 ?>
 
+
 <div class="content-wrapper">
 	
 	<section class="content-header">
@@ -31,8 +32,15 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 				<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#CrearPaciente">Crear Paciente</button>
 				
 			</div>
+			<!-- 
 
 			<div class="card-tools">
+											<a href="#" class="btn btn-info btn-border btn-round btn-sm mr-2">
+												<span class="btn-label">
+													<i class="fa fa-pencil"></i>
+												</span>
+												Exportar
+											</a>
 											<a href="#" class="btn btn-info btn-border btn-round btn-sm mr-2">
 												<span class="btn-label">
 													<i class="fa fa-pencil"></i>
@@ -49,9 +57,9 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 										<div class="card-body">
 
 
-			<div class="box-body">
+			<div class="box-body">-->
 				
-				<table class="table table-bordered table-hover table-striped DT">
+				<table class="table table-bordered table-hover table-striped DT" >
 					
 					<thead>
 						
@@ -129,14 +137,14 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 
 									<td>
 										
-										<div class="btn-group">
+										<div class="text-center">
 											
 											
-											<button class="btn btn-success EditarPaciente" Pid="'.$value["id"].'" data-toggle="modal" data-target="#EditarPaciente"><i class="fa fa-pencil"></i> Editar</button>
+											<button class="btn btn-success EditarPaciente" Pid="'.$value["id"].'" data-toggle="modal" data-target="#EditarPaciente"><i class="fa fa-pencil"></i></button>
 											
-											<button class="btn btn-danger EliminarPaciente" Pid="'.$value["id"].'" imgP="'.$value["foto"].'"><i class="fa fa-times"></i> Borrar</button>
+											<button class="btn btn-danger EliminarPaciente" Pid="'.$value["id"].'" imgP="'.$value["foto"].'"><i class="fa fa-times"></i></button>
 											
-
+											
 										</div>
 
 									</td>
@@ -168,6 +176,8 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 		
 		<div class="modal-content">
 			
+
+		
 			<form method="post" role="form">
 				
 				<div class="modal-body">

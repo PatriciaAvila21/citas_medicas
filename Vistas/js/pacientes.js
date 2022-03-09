@@ -1,3 +1,5 @@
+
+
 $(".DT").on("click", ".EliminarPaciente", function(){
 
 	var Pid = $(this).attr("Pid");
