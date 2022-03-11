@@ -39,6 +39,13 @@
           </a>
         </li>
 
+        <li>
+          <a href="http://localhost/citas_medicas/calificar">
+            <i class="fa fa-shield"></i>
+            <span>Calificación de citas médica</span>
+          </a>
+        </li>
+
       </ul>
 
     </section>
