@@ -368,12 +368,6 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 						    </div>
 						</div>
 						
-						<div class="col-md-6">
-						    <div class="form-group form-group-default">
-						      <label>Correo Electronico:</label>
-   							    <input type="email" class="form-control" id="correoE" name="correoE" required>
-						    </div>
-						</div>
 
 						<div class="col-md-6">
 						    <div class="form-group form-group-default">

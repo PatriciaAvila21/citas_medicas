@@ -5,7 +5,8 @@ class SecretariasC{
 	//Ingreso Secretarias
 	public function IngresarSecretariaC(){
 
-		if(isset($_POST["usuario-Ing"])){
+		if(isset($_POST["usuario-Ing"] )){
+			
 
 			if(preg_match('/^[a-zA-Z0-9]+$/', $_POST["usuario-Ing"]) && preg_match('/^[a-zA-Z0-9]+$/', $_POST["clave-Ing"])){
 
@@ -48,6 +49,7 @@ class SecretariasC{
 
 			}
 
+			
 		}
 
 	}
@@ -342,5 +344,41 @@ public function BorrarSecretariaC(){
 }
 
 	
+	//Editar Secretarias
+	static public function SecretariaC($columna, $valor){
+
+		$tablaBD = "secretarias";
+
+		$resultado = SecretariasM::SecretariaM($tablaBD, $columna, $valor);
+
+		return $resultado;
+
+	}
+
+
+	//Actualizar Secretaria
+	public function ActualizarSecretariaC(){
+
+		if(isset($_POST["Sid"])){
+
+			$tablaBD = "secretarias";
+
+			$datosC = array("id"=>$_POST["Sid"], "cedula"=>$_POST["cedulaE"], "apellido"=>$_POST["apellidoE"], "nombre"=>$_POST["nombreE"], "correo"=>$_POST["correoE"], "telefono"=>$_POST["telefonoE"], "direccion"=>$_POST["direccionE"], "ciudad"=>$_POST["ciudadE"],"sexo"=>$_POST["sexoE"], "usuario"=>$_POST["usuarioE"], "clave"=>MD5($_POST['clave']));
+
+			$resultado = SecretariasM::ActualizarSecretariaM($tablaBD, $datosC);
+
+			if($resultado == true){
+
+				echo '<script>
+
+				window.location = "secretarias";
+				</script>';
+
+			}
+
+		}
+
+	}
+
 
 }

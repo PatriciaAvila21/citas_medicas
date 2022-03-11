@@ -140,4 +140,53 @@ class SecretariasM extends ConexionBD{
 		$pdo = null;
 
 	}
+
+
+//Editar Secretaria
+static public function SecretariaM($tablaBD, $columna, $valor){
+
+	if($columna != null){
+
+		$pdo = ConexionBD::cBD()->prepare("SELECT * FROM $tablaBD WHERE $columna = :$columna");
+
+		$pdo -> bindParam(":".$columna, $valor, PDO::PARAM_STR);
+
+		$pdo->execute();
+
+		return $pdo -> fetch();
+
+	}
+
+	$pdo -> close();
+	$pdo = null;
+
+}
+
+
+//Actualizar Secretarias
+static public function ActualizarSecretariaM($tablaBD, $datosC){
+
+	$pdo = ConexionBD::cBD()->prepare("UPDATE $tablaBD SET cedula = :cedula, apellido = :apellido, nombre = :nombre, correo = :correo, telefono = :telefono, direccion = :direccion, ciudad = :ciudad, sexo = :sexo, usuario = :usuario, clave = :clave WHERE id = :id");
+
+	$pdo -> bindParam(":id", $datosC["id"], PDO::PARAM_INT);
+	$pdo -> bindParam(":cedula", $datosC["cedula"], PDO::PARAM_STR);
+	$pdo -> bindParam(":apellido", $datosC["apellido"], PDO::PARAM_STR);
+	$pdo -> bindParam(":nombre", $datosC["nombre"], PDO::PARAM_STR);
+	$pdo -> bindParam(":correo", $datosC["correo"], PDO::PARAM_STR);
+	$pdo -> bindParam(":telefono", $datosC["telefono"], PDO::PARAM_INT);
+	$pdo -> bindParam(":direccion", $datosC["direccion"], PDO::PARAM_STR);
+	$pdo -> bindParam(":ciudad", $datosC["ciudad"], PDO::PARAM_STR);
+	$pdo -> bindParam(":sexo", $datosC["sexo"], PDO::PARAM_STR);
+	$pdo -> bindParam(":usuario", $datosC["usuario"], PDO::PARAM_STR);
+	$pdo -> bindParam(":clave", $datosC["clave"], PDO::PARAM_STR);
+
+	if($pdo -> execute()){
+		return true;
+	}
+
+	$pdo -> close();
+	$pdo = null;
+
+}
+
 }

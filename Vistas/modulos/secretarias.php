@@ -35,7 +35,7 @@ if($_SESSION["rol"] != "Administrador"){
 
 			<div class="box-body">
 				
-				<table class="table table-bordered table-hover table-striped dt-responsive DT" id="tableSecretaria">
+				<table class="table table-bordered table-hover table-striped dt-responsive DT">
 					
 					<thead>
 						
@@ -46,7 +46,7 @@ if($_SESSION["rol"] != "Administrador"){
 							<th>Nombre</th>
 							<th>Foto</th>
 							<th>Usuario</th>
-							<th>Contraseña</th>
+							<th>Correo Electronico</th>
 							<th>Borrar</th>
 
 						</tr>
@@ -79,13 +79,14 @@ if($_SESSION["rol"] != "Administrador"){
 
 									echo '<td>'.$value["usuario"].'</td>
 
-									<td>'.$value["clave"].'</td>
+									<td>'.$value["correo"].'</td>
 
 									<td>
 										
 										<div class="btn-group">
+										    <button class="btn btn-success EditarSecretaria" Sid="'.$value["id"].'" data-toggle="modal" data-target="#EditarSecretaria"><i class="fa fa-pencil"></i></button>
 											
-											<button class="btn btn-danger EliminarSecretaria" Sid="'.$value["id"].'" imgS="'.$value["foto"].'"><i class="fa fa-times"></i> Borrar</button>
+											<button class="btn btn-danger EliminarSecretaria" Sid="'.$value["id"].'" imgS="'.$value["foto"].'"><i class="fa fa-times"></i></button>
 											
 										</div>
 
@@ -188,6 +189,117 @@ if($_SESSION["rol"] != "Administrador"){
 
 </div>
 
+
+
+<div class="modal fade" rol="dialog" id="EditarSecretaria">
+	
+	<div class="modal-dialog">
+		
+		<div class="modal-content">
+			
+			<form method="post" role="form">
+				
+				<div class="modal-body">
+					
+					<div class="box-body">
+
+					<div class="col-md-12">
+						    <div class="form-group form-group-default">
+						      <label>Cédula:</label>
+							       <input type="text" maxlength="10" class="form-control" id="cedulaE" name="cedulaE" required>
+								   <input type="hidden" id="Sid" name="Sid">
+					     	</div>
+					</div>
+
+					<div class="col-md-6">
+						    <div class="form-group form-group-default">
+						      <label>Apellidos:</label>
+   							    <input type="text" class="form-control" id="apellidoE" name="apellidoE" required>
+						    </div>
+						</div>
+
+						<div class="col-md-6">
+						    <div class="form-group form-group-default">
+						      <label>Nombres:</label>
+   							    <input type="text" class="form-control" id="nombreE" name="nombreE" required>
+						    </div>
+						</div>
+						
+
+						<div class="col-md-6">
+						    <div class="form-group form-group-default">
+						      <label>Telefono:</label>
+							  <input name="telefonoE" id="telefonoE" type="text" class="form-control" required maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+						    </div>
+						</div>
+						
+						<div class="col-md-6">
+						    <div class="form-group form-group-default">
+						      <label>Direccion:</label>
+   							    <input type="text" class="form-control" id="direccionE" name="direccionE" required>
+						    </div>
+						</div>
+						<div class="col-md-6">
+						    <div class="form-group form-group-default">
+						      <label>Ciudad:</label>
+   							    <input type="text" class="form-control" id="ciudadE" name="ciudadE" required>
+						    </div>
+						</div>
+						
+						<div class="col-md-6">
+							<div class="form-group form-group-default">
+								<label>Sexo</label>
+				             	<select class="form-control" name="sexoE">
+								 <option id="sexoE"></option>
+				        		<option value="Masculino">Masculino</option>
+					        	<option value="Femenino">Femenino</option>
+				                </select>
+							</div>
+						</div>
+
+
+						<div class="col-md-6">
+							<div class="form-group form-group-default">
+								<label>Usuario:</label>
+								<input id="usuarioE" name="usuarioE" type="text" class="form-control" placeholder="Ingrese su usuario" required>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="form-group form-group-default">
+								<label>Contraseña:</label>
+								<input  id="clave" name="clave" type="password" class="form-control" placeholder="Ingrese su contraseña" required>
+							</div>
+						</div>
+						
+
+					</div>
+
+				</div>
+
+
+				<div class="modal-footer">
+					
+					<button type="submit" class="btn btn-success">Guardar Cambios</button>
+
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+
+				</div>
+
+				<?php
+
+				$actualizar = new SecretariasC();
+				$actualizar -> ActualizarSecretariaC();
+
+				?>
+
+			</form>
+
+		</div>
+
+	</div>
+
+</div>
 
 
 <?php

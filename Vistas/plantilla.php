@@ -201,7 +201,6 @@ session_start();
 <script src="http://localhost/citas_medicas/Vistas/js/doctores.js"></script>
 <script src="http://localhost/citas_medicas/Vistas/js/pacientes.js"></script>
 <script src="http://localhost/citas_medicas/Vistas/js/secretarias.js"></script>
-<script src="http://localhost/citas_medicas/Vistas/js/secretaria.js"></script>
 
 
 
